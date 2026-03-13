@@ -1,0 +1,235 @@
+// ── Golem15 Backend Theme ──
+// Loaded via customLessPath brand config.
+// Has access to @brand-primary, @brand-secondary, @brand-accent.
+
+// ── Variables ──
+@g15-cyan: @brand-secondary;
+@g15-dark: #0f1923;
+@g15-surface: #1a2332;
+@g15-surface-light: #222d3a;
+@g15-border: rgba(45, 167, 199, 0.12);
+@g15-text: #c8d6e0;
+@g15-text-muted: #7a8d9e;
+
+// ── Top Navigation ──
+nav#layout-mainmenu {
+    background: @g15-dark !important;
+    border-bottom: 1px solid @g15-border;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+
+    .mainmenu-item > a {
+        color: @g15-text-muted !important;
+        transition: color 0.2s ease;
+
+        &:hover, &.active {
+            color: #fff !important;
+        }
+    }
+
+    .mainmenu-item.active > a {
+        color: #fff !important;
+    }
+}
+
+// ── Body / content area ──
+body #layout-body {
+    background: #f0f2f5;
+}
+
+// ── Sidebar ──
+#layout-sidenav {
+    background: @g15-surface;
+    border-right: 1px solid @g15-border;
+
+    .sidenav-tree ul li a {
+        color: @g15-text-muted;
+        transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .sidenav-tree ul li:hover a {
+        color: @g15-text;
+    }
+}
+
+#layout-sidenav-tree .sidenav-tree ul li.active {
+    border-left-color: @g15-cyan;
+
+    a {
+        color: #fff;
+    }
+}
+
+// ── Side panel header ──
+#layout-side-panel .sidepanel-content-header {
+    background: @g15-surface;
+}
+
+// ── Toolbar area ──
+.control-toolbar {
+    .toolbar-item .btn-primary {
+        background: @g15-cyan;
+        border-color: @g15-cyan;
+    }
+}
+
+// ── Primary buttons ──
+.btn-primary {
+    background-color: @g15-cyan;
+    border-color: @g15-cyan;
+    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+
+    &:hover, &:focus {
+        background-color: darken(@g15-cyan, 8%);
+        border-color: darken(@g15-cyan, 8%);
+        box-shadow: 0 0 12px rgba(45, 167, 199, 0.35);
+    }
+}
+
+// ── Form inputs ──
+.form-control:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: @g15-cyan;
+    box-shadow: 0 0 0 2px rgba(45, 167, 199, 0.15);
+}
+
+// ── Checkboxes ──
+.custom-checkbox input[type=checkbox]:checked + label:before,
+.custom-checkbox input[type=checkbox]:indeterminate + label:before {
+    border-color: @g15-cyan;
+    background: @g15-cyan;
+}
+
+// ── Links ──
+a {
+    color: @g15-cyan;
+
+    &:hover {
+        color: lighten(@g15-cyan, 10%);
+    }
+}
+
+// ── Tab active indicators ──
+.control-tabs.primary-tabs > div > ul.nav-tabs > li.active > a:after,
+.control-tabs > div > ul.nav-tabs > li.active > a:after {
+    background: @g15-cyan;
+}
+
+// ── List/table styling ──
+.control-list table.table.data {
+    tbody tr {
+        transition: background-color 0.1s ease;
+
+        &:not(.nolink):hover td {
+            background-color: fade(@g15-cyan, 5%);
+        }
+
+        &.active td:first-child {
+            border-left-color: @g15-cyan;
+        }
+    }
+}
+
+// ── Loading indicators ──
+.stripe-loading-indicator .stripe,
+.stripe-loading-indicator .stripe-loaded {
+    background: @g15-cyan !important;
+}
+
+.wn-loading-indicator > div {
+    background: @g15-cyan;
+}
+
+// ── Scrollbar ──
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: @g15-dark;
+}
+
+::-webkit-scrollbar-thumb {
+    background: @g15-surface-light;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: @g15-cyan;
+    }
+}
+
+// ── Switch/toggle ──
+.control-switch input:checked + label {
+    background: @g15-cyan;
+    border-color: @g15-cyan;
+}
+
+// ── Pagination ──
+.pagination > li.active > a {
+    background-color: @g15-cyan;
+    border-color: @g15-cyan;
+}
+
+// ── Progress bars ──
+.progress-bar {
+    background-color: @g15-cyan;
+}
+
+// ── Selection ──
+::selection {
+    background: fade(@g15-cyan, 30%);
+}
+
+// ── Balloon selector ──
+.control-balloon-selector ul li.active {
+    background: @g15-cyan !important;
+}
+
+// ── Breadcrumbs ──
+body.breadcrumb-fancy .control-breadcrumb,
+.control-breadcrumb.breadcrumb-fancy {
+    background-color: @g15-surface;
+}
+
+// ── Dropdown menus ──
+.dropdown-menu {
+    border-color: @g15-border;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+
+    > li > a:hover,
+    > li > a:focus {
+        background-color: fade(@g15-cyan, 10%);
+        color: @g15-cyan;
+    }
+}
+
+// ── Filter area ──
+.control-filter {
+    .filter-scope .filter-label {
+        color: @g15-text-muted;
+    }
+}
+
+// ── Flash messages ──
+.flash-message.success {
+    background: fade(@g15-cyan, 15%);
+    border-color: @g15-cyan;
+    color: @g15-cyan;
+}
+
+// ── Fancy layout tabs ──
+body.fancy-layout .master-tabs.control-tabs,
+.master-tabs.control-tabs.fancy-layout {
+    > div > div.tabs-container > ul.nav-tabs > li.active a > span.title {
+        &, &:before, &:after {
+            background: @g15-cyan;
+        }
+    }
+
+    > div > div.tabs-container {
+        background: @g15-surface;
+    }
+}

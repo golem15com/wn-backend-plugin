@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── Reset Winter's table layout for auth pages ── */
+body.outer,
+body.outer #layout-canvas,
+body.outer #layout-canvas .layout,
+body.outer #layout-canvas .layout .layout-row:not(.layout-head),
+body.outer #layout-canvas .layout .layout-cell {
+    display: block !important;
+    height: auto !important;
+    width: auto !important;
+    float: none !important;
+    vertical-align: baseline !important;
+}
+
+/* ── Base ── */
+body.outer {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+    background: #0a0a0a !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body.outer::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── Layout: flex-center the card ── */
+body.outer #layout-canvas {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+    position: relative;
+    z-index: 1;
+}
+
+body.outer #layout-canvas .layout {
+    width: 100% !important;
+    max-width: 420px !important;
+    padding: 20px;
+}
+
+/* ── Hide default Winter header ── */
+body.outer #layout-canvas .layout .layout-row.layout-head {
+    display: none !important;
+}
+
+/* ── Auth Card ── */
+.auth-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 40px 36px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Logo ── */
+.auth-logo {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.auth-logo img {
+    height: 36px;
+    width: auto;
+    max-width: 100%;
+}
+
+/* ── Heading ── */
+.auth-card h2 {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 0 28px;
+    letter-spacing: 0.01em;
+}
+
+/* ── Form Elements ── */
+.auth-card .form-elements {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-card .form-group.text-field.horizontal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-card .form-control {
+    width: 100%;
+    padding: 12px 16px;
+    background: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    color: #e5e5e5;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.auth-card .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.auth-card .form-control:focus {
+    border-color: #2da7c7;
+    box-shadow: 0 0 0 3px rgba(45, 167, 199, 0.15);
+}
+
+/* Remove default icon styling from Winter inputs */
+.auth-card .form-control.icon {
+    background-image: none;
+    padding-left: 16px;
+}
+
+/* ── Submit Button ── */
+.auth-card .btn-primary {
+    width: 100%;
+    padding: 12px 24px;
+    background: #2da7c7;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 4px;
+}
+
+.auth-card .btn-primary:hover,
+.auth-card .btn-primary:focus {
+    background: #2591ad;
+    box-shadow: 0 0 16px rgba(45, 167, 199, 0.3);
+}
+
+/* ── Remember Me Checkbox ── */
+.auth-card .checkbox-field.remember {
+    margin-top: 16px;
+}
+
+.auth-card .custom-checkbox label {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+}
+
+.auth-card .custom-checkbox input[type=checkbox]:checked + label:before {
+    border-color: #2da7c7;
+    background: #2da7c7;
+}
+
+/* ── Forgot Password Link ── */
+.auth-card .forgot-password {
+    margin-top: 20px;
+    text-align: center;
+    float: none !important;
+}
+
+.auth-card .forgot-password a,
+.auth-card .forgot-password a.text-muted {
+    color: rgba(45, 167, 199, 0.7);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s ease;
+}
+
+.auth-card .forgot-password a:hover {
+    color: #2da7c7;
+}
+
+/* Remove icon from forgot password */
+.auth-card p.wn-icon-lock:before {
+    display: none;
+}
+
+/* ── Flash Messages ── */
+.auth-flash-messages {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    max-width: 400px;
+}
+
+.auth-flash-messages .flash-message {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 8px;
+    border: 1px solid;
+}
+
+.auth-flash-messages .flash-message.success {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.2);
+    color: #6ee7b7;
+}
+
+.auth-flash-messages .flash-message.error {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+}
+
+.auth-flash-messages .flash-message.warning {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.2);
+    color: #fcd34d;
+}
+
+.auth-flash-messages .flash-message.info {
+    background: rgba(45, 167, 199, 0.1);
+    border-color: rgba(45, 167, 199, 0.2);
+    color: #7dd3fc;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+    body.outer #layout-canvas .layout {
+        max-width: 100% !important;
+        padding: 16px;
+    }
+
+    .auth-card {
+        padding: 32px 24px;
+        border-radius: 12px;
+    }
+}
