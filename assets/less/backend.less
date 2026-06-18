@@ -214,10 +214,17 @@ body.breadcrumb-fancy .control-breadcrumb,
 }
 
 // ── Flash messages ──
+// Success was rendered with a heavily-transparent (15% opacity) cyan wash that
+// was barely visible after saving. Use a near-solid on-brand fill with white text
+// for readable contrast. Error/warning/info keep the WinterCMS-core defaults.
 .flash-message.success {
-    background: fade(@g15-cyan, 15%);
+    background: fade(@g15-cyan, 90%);
     border-color: @g15-cyan;
-    color: @g15-cyan;
+    color: #fff;
+}
+
+.flash-message.error {
+    color: #fff;
 }
 
 // ── Fancy layout tabs ──
@@ -232,4 +239,21 @@ body.fancy-layout .master-tabs.control-tabs,
     > div > div.tabs-container {
         background: @g15-surface;
     }
+}
+
+// ── Inactive tab edges ──
+// WinterCMS-core fills the INACTIVE fancy-layout / primary-tabs skewed edge
+// pseudo-elements (span.title:before / :after) with a near-white colour
+// (#2c9cb9 base / #d5d9d8 for primary-tabs) while the inactive tab CENTRE is a
+// flat grey — so inactive tabs read as gray-centre + near-white edges. Unify the
+// edges to the centre grey (#d6d6d6). Active tabs are untouched (they stay @g15-cyan).
+body.fancy-layout .master-tabs.control-tabs > div > div.tabs-container > ul.nav-tabs > li:not(.active) a > span.title:before,
+body.fancy-layout .master-tabs.control-tabs > div > div.tabs-container > ul.nav-tabs > li:not(.active) a > span.title:after,
+.master-tabs.control-tabs.fancy-layout > div > div.tabs-container > ul.nav-tabs > li:not(.active) a > span.title:before,
+.master-tabs.control-tabs.fancy-layout > div > div.tabs-container > ul.nav-tabs > li:not(.active) a > span.title:after,
+.fancy-layout *:not(.nested-form):not(.modal-body) > .form-widget > .layout-row > .control-tabs.primary-tabs > div > ul.nav-tabs > li:not(.active) a > span.title:before,
+.fancy-layout *:not(.nested-form):not(.modal-body) > .form-widget > .layout-row > .control-tabs.primary-tabs > div > ul.nav-tabs > li:not(.active) a > span.title:after,
+*:not(.nested-form):not(.modal-body) > .form-widget > .layout-row > .control-tabs.fancy-layout.primary-tabs > div > ul.nav-tabs > li:not(.active) a > span.title:before,
+*:not(.nested-form):not(.modal-body) > .form-widget > .layout-row > .control-tabs.fancy-layout.primary-tabs > div > ul.nav-tabs > li:not(.active) a > span.title:after {
+    background: #d6d6d6;
 }
