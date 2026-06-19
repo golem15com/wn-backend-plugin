@@ -51,4 +51,5 @@ This plugin has no external Composer dependencies and declares no required Winte
 
 ## License
 
-Proprietary — © Golem15. Part of the Golem15 Winter CMS stack.
+Released under the **[MIT License](LICENSE.md)** — © 2026 Jakub Zych / Golem15. Part of the
+Golem15 Winter CMS stack.
