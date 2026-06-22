@@ -3,6 +3,7 @@
 use Backend\Controllers\Auth as AuthController;
 use Backend\Models\BrandSetting;
 use System\Classes\PluginBase;
+use Illuminate\Support\Facades\Cache;
 use Winter\Storm\Support\Facades\File;
 
 class Plugin extends PluginBase
@@ -62,7 +63,7 @@ class Plugin extends PluginBase
         $mtime = File::lastModified($lessPath);
         $cacheKey = 'golem15.backend::less_mtime';
 
-        if (cache($cacheKey) === $mtime) {
+        if (Cache::get($cacheKey) === $mtime) {
             return;
         }
 
@@ -74,6 +75,6 @@ class Plugin extends PluginBase
             $settings->save();
         }
 
-        cache([$cacheKey => $mtime], now()->addDays(30));
+        Cache::put($cacheKey, $mtime, now()->addDays(30));
     }
 }
